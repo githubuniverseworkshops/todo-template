@@ -49,7 +49,7 @@ jobs:
       uses: actions/cache@preview
       with:
         path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles(package-lock.json) }}
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install production dependencies
       run: npm i --only=production

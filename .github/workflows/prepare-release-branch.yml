@@ -50,7 +50,8 @@ jobs:
       uses: actions/cache@v1
       with:
         path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-production
+        key: ${{ runner.os }}-node-production-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: ${{ runner.os }}-node-production-
 
     - name: Install production dependencies
       if: steps.cache.outputs.cache-hit != 'true'
